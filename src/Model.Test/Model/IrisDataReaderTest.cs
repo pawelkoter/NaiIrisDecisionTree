@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using FluentAssertions;
+using NaiIrisDecisionTree.Model;
 using NUnit.Framework;
 
-namespace NaiIrisDecisionTree.Model.Test
+namespace NaiIrisDecisionTree.Test.Model
 {
     [TestFixture]
     public class IrisDataReaderTest

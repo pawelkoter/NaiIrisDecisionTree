@@ -7,7 +7,7 @@
     <ProjectGuid>{EB7EDE85-6452-49FA-8F2C-A5D11B81A83D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NaiIrisDecisionTree</RootNamespace>
+    <RootNamespace>NaiIrisDecisionTree.Test</RootNamespace>
     <AssemblyName>NaiIrisDecisionTree.Model.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,8 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model.Test\DecisionTreeTest.cs" />
-    <Compile Include="Model.Test\IrisDataReaderTest.cs" />
+    <Compile Include="Model\DecisionTreeTest.cs" />
+    <Compile Include="Model\IrisDataReaderTest.cs" />
+    <Compile Include="Model\DecisionTree\Builder\TreeBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,5 +79,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

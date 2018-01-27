@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using System.Reflection;
+using NaiIrisDecisionTree.Model.Helpers;
 
 namespace NaiIrisDecisionTree.Model
 {
@@ -8,14 +10,15 @@ namespace NaiIrisDecisionTree.Model
 
         public INode<T> RightChild { get; set; }
 
-        public string ClasificatorName { get; set; }
+        public PropertyInfo Classifier { get; set; }
+
+        public string ClassifierName => Classifier.Name;
 
         public decimal Threshold { get; set; }
 
         public string Evaluate(T instance)
         {
-            var property = instance.GetType().GetProperties().Where(x =>
-                x.GetCustomAttributes(false).Any(a => a.GetType() == typeof(ClassificatorAttribute))).Single(x => x.Name == ClasificatorName);
+            var property = instance.GetType().GetClassifierProperties().Single(x => x.Name == ClassifierName);
 
             dynamic prop = property.GetValue(instance);
 

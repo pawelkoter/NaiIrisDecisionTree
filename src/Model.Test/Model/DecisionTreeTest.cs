@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using NaiIrisDecisionTree.Model;
 using NUnit.Framework;
 
-namespace NaiIrisDecisionTree.Model.Test
+namespace NaiIrisDecisionTree.Test.Model
 {
     [TestFixture]
     public class DecisionTreeTest
@@ -17,7 +18,7 @@ namespace NaiIrisDecisionTree.Model.Test
                     LeftChild = new Leaf<IrisRecord> {Value = "Iris-setosa"},
                     RightChild = null,
                     Threshold = 4.0m,
-                    ClasificatorName = nameof(IrisRecord.SepalWidth)
+                    Classifier = typeof(IrisRecord).GetProperty(nameof(IrisRecord.SepalWidth))
                 }
             };
 

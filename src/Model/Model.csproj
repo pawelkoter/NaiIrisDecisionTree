@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ClassificatorAttribute.cs" />
+    <Compile Include="Model\ClassificationAttribute.cs" />
+    <Compile Include="Model\ClassifierAttribute.cs" />
     <Compile Include="Model\DecisionTree.cs" />
     <Compile Include="Model\INode.cs" />
     <Compile Include="Model\IrisRecord.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Model\IrisDataReader.cs" />
     <Compile Include="Model\Leaf.cs" />
     <Compile Include="Model\Node.cs" />
+    <Compile Include="Model\DecisionTree\Builder\TreeBuilder.cs" />
+    <Compile Include="Model\Helpers\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

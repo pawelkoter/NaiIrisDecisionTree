@@ -2,17 +2,19 @@
 {
     public class IrisRecord
     {
-        [Classificator]
+        [Classifier]
         public decimal SepalLength { get; set; }
 
-        [Classificator]
+        [Classifier]
         public decimal SepalWidth { get; set; }
 
-        [Classificator]
+        [Classifier]
         public decimal PetalLength { get; set; }
 
-        [Classificator]
+        [Classifier]
         public decimal PetalWidth { get; set; }
+
+        [Classification]
         public string Classification { get; set; }
     }
 }

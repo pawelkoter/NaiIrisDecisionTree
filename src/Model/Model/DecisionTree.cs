@@ -2,7 +2,7 @@
 {
     public class DecisionTree<T> where T : class
     {
-        public Node<T> Root { get; set; }
+        public INode<T> Root { get; set; }
 
         public string Evaluate(T instance)
         {

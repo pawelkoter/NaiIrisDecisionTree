@@ -3,8 +3,7 @@
 namespace NaiIrisDecisionTree.Model
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class ClassificatorAttribute : Attribute
+    public class ClassificationAttribute : Attribute
     {
-        
     }
 }
