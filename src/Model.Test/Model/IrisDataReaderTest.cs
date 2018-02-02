@@ -34,6 +34,11 @@ namespace NaiIrisDecisionTree.Test.Model
 
             //Then
             records.Should().HaveCount(4, "Because it is number of records in the file");
+            records[0].SepalLength.ShouldBeEquivalentTo(5.1m);
+            records[0].SepalWidth.ShouldBeEquivalentTo(3.5m);
+            records[0].PetalLength.ShouldBeEquivalentTo(1.4m);
+            records[0].PetalWidth.ShouldBeEquivalentTo(0.2m);
+            records[0].Classification.ShouldBeEquivalentTo("Iris-setosa");
         }
     }
 }

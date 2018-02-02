@@ -49,10 +49,12 @@
     <Compile Include="Model\ClassificationAttribute.cs" />
     <Compile Include="Model\ClassifierAttribute.cs" />
     <Compile Include="Model\DecisionTree.cs" />
+    <Compile Include="Model\EvaluationStatistic.cs" />
     <Compile Include="Model\INode.cs" />
     <Compile Include="Model\IrisRecord.cs" />
     <Compile Include="Model\IrisRecordLayout.cs" />
     <Compile Include="Model\IrisDataReader.cs" />
+    <Compile Include="Model\IrisTestRecord.cs" />
     <Compile Include="Model\Leaf.cs" />
     <Compile Include="Model\Node.cs" />
     <Compile Include="Model\DecisionTree\Builder\TreeBuilder.cs" />

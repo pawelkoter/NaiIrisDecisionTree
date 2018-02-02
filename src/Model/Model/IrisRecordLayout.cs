@@ -13,7 +13,8 @@ namespace NaiIrisDecisionTree.Model
                 .WithMember(x => x.SepalLength, c => c.WithTypeConverter<DecimalConverter>())
                 .WithMember(x => x.SepalWidth, c => c.WithTypeConverter<DecimalConverter>())
                 .WithMember(x => x.PetalLength, c => c.WithTypeConverter<DecimalConverter>())
-                .WithMember(x => x.PetalWidth, c => c.WithTypeConverter<DecimalConverter>());
+                .WithMember(x => x.PetalWidth, c => c.WithTypeConverter<DecimalConverter>())
+                .WithMember(x => x.Classification);
         }
 
         private class DecimalConverter : ITypeConverter
