@@ -54,6 +54,15 @@ namespace NaiIrisDecisionTree.Model.DecisionTree.Builder
             var rightSet = trainingSet.Except(leftSet)
                                        .ToList();
 
+            if (split.InformationGain < 0.1)
+            {
+                var undefinedLeaf = new Leaf<IrisRecord>
+                {
+                    Value = "Undefined"
+                };
+                return undefinedLeaf;
+            }
+
             var leftChild = ConstructTree(leftSet, classifiers, classification, defaultClass);
             var rightChild = ConstructTree(rightSet, classifiers, classification, defaultClass);
 
@@ -72,6 +81,20 @@ namespace NaiIrisDecisionTree.Model.DecisionTree.Builder
         {
             var orderedSet = trainingSet.OrderBy(x => (decimal) classifier.GetValue(x))
                                         .ToList();
+
+            var firstElementValue = (decimal) classifier.GetValue(orderedSet.First());
+            var lastElementValue = (decimal) classifier.GetValue(orderedSet.Last());
+
+            if (firstElementValue == lastElementValue)
+            {
+                return new Split
+                {
+                    InformationGain = 0,
+                    Classifier = classifier,
+                    Threshold = firstElementValue
+                };
+            }
+
             var currentEntropy = CalculateEntropy(trainingSet, classification);
             var splits = new List<Split>();
 
@@ -80,14 +103,23 @@ namespace NaiIrisDecisionTree.Model.DecisionTree.Builder
                 var threshold = ((decimal) classifier.GetValue(orderedSet[i]) +
                                  (decimal) classifier.GetValue(orderedSet[i + 1])) / 2;
 
-                var leftSet = trainingSet.Take(i + 1)
+                var leftSet = orderedSet.Take(i + 1)
                                          .ToList();
-                var rightSet = trainingSet.Skip(i + 1)
+                var rightSet = orderedSet.Skip(i + 1)
                                           .ToList();
+
+                var leftSetLastValue = (decimal)classifier.GetValue(leftSet.Last());
+                var rightSetFirstValue = (decimal)classifier.GetValue(rightSet.First());
+
+                if (leftSetLastValue == rightSetFirstValue)
+                {
+                    //move to next element
+                    continue;
+                }
 
                 var splitEntropy = (double)leftSet.Count/trainingSet.Count*CalculateEntropy(leftSet, classification) 
                                    + (double)rightSet.Count/trainingSet.Count*CalculateEntropy(rightSet, classification);
-                
+
                 var split = new Split
                 {
                     Threshold = threshold,
